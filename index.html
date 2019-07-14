@@ -697,13 +697,23 @@
                 
               
 
-              <time title="Erstellt: 2019-05-26 20:04:17 / Geändert am: 20:18:20" itemprop="dateCreated datePublished" datetime="2019-05-26T20:04:17+08:00">2019-05-26</time>
+              <time title="Erstellt: 2019-05-26 20:04:17" itemprop="dateCreated datePublished" datetime="2019-05-26T20:04:17+08:00">2019-05-26</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-07-14 17:04:28" itemprop="dateModified" datetime="2019-07-14T17:04:28+08:00">2019-07-14</time>
+              </span>
             
           
 
@@ -742,20 +752,16 @@
 
       
         
+          <p class="description"></p>
+          <!--noindex-->
           
-            <hr>
-<h3 id="zip伪加密-破解zip密码"><a href="#zip伪加密-破解zip密码" class="headerlink" title="zip伪加密  破解zip密码"></a>zip伪加密  破解zip密码</h3><p>ZIP是一种相当简单的分别压缩每个文件的存档格式。分别压缩文件允许不必读取另外的数据而检索独立的文件；理论上，这种格式允许对不同的文件使用不同的算法。不管用何种方法，对这种格式的一个告诫是对于包含很多小文件的时候，存档会明显的比压缩成一个独立的文件（在类Unix系统中一个经典的例子是普通的tar.gz存档是由一个使用gzip压缩的TAR存档组成）要大。</p>
-<p>   ZIP支持基于对称加密系统的一个简单的密码，现在已知有严重的缺陷，已知明文攻击，字典攻击和暴力攻击。ZIP也支持分卷压缩。在近来一段时间，ZIP加入了包括新的压缩和加密方法的新特征，不过这些新特征并没有被许多工具所支持并且没有得到广泛应用。</p>
-<p>   ZIP文件是一种压缩文件，可进行加密，也可不加密。而伪加密是在未加密的zip文件基础上修改了它的压缩源文件目录区里的全局方式位标记的比特值，使得压缩软件打开它的时候识别为加密文件，提示输入密码， 而在这个时候，不管你用什么软件对其进行密码破解，都无法打开它！这就是它存在的意义！</p>
-<h3 id="识别真假加密"><a href="#识别真假加密" class="headerlink" title="识别真假加密"></a>识别真假加密</h3><p>无加密<br>压缩源文件数据区的全局加密应当为00 00<br>且压缩源文件目录区的全局方式位标记应当为00 00</p>
-<p>假加密<br>压缩源文件数据区的全局加密应当为00 00<br>且压缩源文件目录区的全局方式位标记应当为09 00</p>
-<p>真加密<br>压缩源文件数据区的全局加密应当为09 00</p>
-<h3 id="zip伪密码破解方法"><a href="#zip伪密码破解方法" class="headerlink" title="zip伪密码破解方法"></a>zip伪密码破解方法</h3><p>   一、使用ZipCenOp.jar(需要java环境)，在cmd中使用</p>
-<p>java -jar ZipCenOp.jar r xxx.zip<br>成功后压缩包可以直接打开<br>ZipCenOp.jar下载<br>二、使用winRAR</p>
-<p>进入工具，压缩修复文件，修复完后压缩包就可以打开了</p>
-<p>上述两种方法很多情况都可以用，但是有时不行，第三种方法可以应对各种zip伪加密。<br>三、修改文件头的加密标志位<br>一格zip文件有三个部分组成：<br>压缩源文件数据区+压缩源文件目录区+压缩源文件目录结束标志 。<br>这是三个头标记，主要看第二个<br>压缩源文件数据区：50 4B 03 04：这是头文件标记<br>压缩源文件目录区：<br>50 4B 01 02：目录中文件文件头标记<br>3F 00：压缩使用的 pkware<br>版本<br>14 00：解压文件所需<br>pkware 版本 00 00：全局方式位标记（有无加密，这个更改这里进行伪加密，改为09 00打开就会提示有密码了）<br>压缩源文件目录结束标志 ：50<br>4B 05 06：目录结束标记</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/26/伪密码/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1204,13 +1210,23 @@
                 
               
 
-              <time title="Erstellt: 2019-04-28 15:25:46 / Geändert am: 15:30:55" itemprop="dateCreated datePublished" datetime="2019-04-28T15:25:46+08:00">2019-04-28</time>
+              <time title="Erstellt: 2019-04-28 15:25:46" itemprop="dateCreated datePublished" datetime="2019-04-28T15:25:46+08:00">2019-04-28</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-07-14 17:04:10" itemprop="dateModified" datetime="2019-07-14T17:04:10+08:00">2019-07-14</time>
+              </span>
             
           
 
@@ -1264,27 +1280,16 @@
 
       
         
+          <p class="description"></p>
+          <!--noindex-->
           
-            <p>首先，这是一个很简单的登陆注册页面，请不要在意美观及设计，重点在于登录注册这个功能。这个项目由五个分页组成：</p>
-<p>1.login.html ：主要包括了一个登录的表单，上面简单的美化是组里的前端用javascript做的，其中很重要的一点是表单中的   method=’post’    action=’login.php’  是这个起到了与服务器端运行的php连接与传输的作用。表单标签中的name属性也很重要，php文件中将通过POST[‘name’]来得到用户输入的数据。</p>
-<p>2.login.php ：php文件在得到了html表单传输过来的数据之后，询问数据库，查询是否存在与用户输人信息相同的信息。如果存在，则给用户设置一个COOKIE，使他在一段时间内保持登录状态。</p>
-<p>3.signup.html：与login.html类似，连接php文件，传送到服务器中。用到了一些javascript的方式来判断用户输入是否合法。</p>
-<p>4.signup.php：接收来自html中用户输入的数据后，将数据存入数据库。</p>
-<p>5.connect.php: 用于连接数据库。</p>
-<p>6.welcome.php:登陆后欢迎界面。</p>
-<p>代码如下：<br>login.html:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;登陆&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form name=<span class="string">"login"</span> action=<span class="string">"login.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">                &lt;p&gt;用户名&lt;input type=text name=<span class="string">"name"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">                &lt;p&gt;密 码&lt;input type=password name=<span class="string">"password"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">                &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">            &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>login.php:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;?PHP</span><br><span class="line">    header(<span class="string">"Content-Type: text/html; charset=utf8"</span>);</span><br><span class="line">    <span class="keyword">if</span>(!isset($_POST[<span class="string">"submit"</span>]))&#123;</span><br><span class="line">        exit(<span class="string">"错误执行"</span>);</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    include(<span class="string">'connect.php'</span>);</span><br><span class="line">    $name = $_POST[<span class="string">'name'</span>];</span><br><span class="line">    $passowrd = $_POST[<span class="string">'password'</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($name &amp;&amp; $passowrd)&#123;</span><br><span class="line">             $sql = <span class="string">"select * from user where username = '$name' and password='$passowrd'"</span>;</span><br><span class="line">             $result = mysql_query($sql);</span><br><span class="line">             $rows=mysql_num_rows($result);</span><br><span class="line">             <span class="keyword">if</span>($rows)&#123;<span class="comment">//0 false 1 true</span></span><br><span class="line">                   header(<span class="string">"refresh:0;url=welcome.html"</span>);</span><br><span class="line">                   exit;</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                echo <span class="string">"用户名或密码错误"</span>;</span><br><span class="line">                echo <span class="string">"</span></span><br><span class="line"><span class="string">                    &lt;script&gt;</span></span><br><span class="line"><span class="string">                            setTimeout(function()&#123;window.location.href='login.html';&#125;,1000);</span></span><br><span class="line"><span class="string">                    &lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                "</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                echo <span class="string">"表单填写不完整"</span>;</span><br><span class="line">                echo <span class="string">"</span></span><br><span class="line"><span class="string">                      &lt;script&gt;</span></span><br><span class="line"><span class="string">                            setTimeout(function()&#123;window.location.href='login.html';&#125;,1000);</span></span><br><span class="line"><span class="string">                      &lt;/script&gt;"</span>;</span><br><span class="line"></span><br><span class="line">                        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mysql_close();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>signup.html:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;用户注册页面&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form action=<span class="string">"signup.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">            &lt;p&gt;用户名:<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">            &lt;p&gt;密  码: <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">            &lt;p&gt;<span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">        &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
-<p>signup.php:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">    header(<span class="string">"Content-Type: text/html; charset=utf8"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!isset($_POST[<span class="string">'submit'</span>]))&#123;</span><br><span class="line">        exit(<span class="string">"错误执行"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $name=$_POST[<span class="string">'name'</span>];</span><br><span class="line">    $password=$_POST[<span class="string">'password'</span>];</span><br><span class="line"></span><br><span class="line">    include(<span class="string">'connect.php'</span>);</span><br><span class="line">    $q=<span class="string">"insert into user(id,username,password) values (null,'$name','$password')"</span>;</span><br><span class="line">    $reslut=mysql_query($q,$con);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!$reslut)&#123;</span><br><span class="line">        die(<span class="string">'Error: '</span> . mysql_error());</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">        echo <span class="string">"注册成功"</span>;</span><br><span class="line">		echo  <span class="string">'&lt;a href="login.html"&gt;点此登录&lt;/a&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    mysql_close($con);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>connect.php:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $server=<span class="string">"localhost"</span>;</span><br><span class="line">    $db_username=<span class="string">"root"</span>;</span><br><span class="line">    $db_password=<span class="string">"root"</span>;</span><br><span class="line"></span><br><span class="line">    $con = mysql_connect($server,$db_username,$db_password);</span><br><span class="line">    <span class="keyword">if</span>(!$con)&#123;</span><br><span class="line">        die(<span class="string">"can't connect"</span>.mysql_error());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    mysql_select_db(<span class="string">'test'</span>,$con);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>welcome.php:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;登陆成功&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        欢迎光临</span><br><span class="line">    &lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/28/简单的注册登录界面/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
