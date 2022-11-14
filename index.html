@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ECNU NLP DeepLearning AntNLP SA godweiyang WeiYang 自然语言处理 深度学习 算法码上来">
+    <meta name="keywords" content="自然语言处理 深度学习 算法码上来">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
@@ -394,37 +394,37 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
 
                 
-                <a href="https://github.com/godweiyang" class="waves-effect waves-light btn" target="_blank">
+                <a href="https://126289.github.io" class="waves-effect waves-light btn" target="_blank">
                     <i class="fa fa-github-alt"></i>Github
                 </a>
                 
             </div>
             <div class="cover-social-link">
-    <a href="https://github.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/126289" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:godweiyang@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:1262896484@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="https://zhihu.com/people/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+    <a href="https://zhihu.com/people/啦啦啦啦啦啦" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 
 
 
-    <a href="http://wpa.qq.com/msgrd?v=3&uin=792321264&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=162896484&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
 
-    <a href="https://weibo.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+    <a href="https://weibo.com/sa" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
         <i class="fa fa-weibo"></i>
     </a>
 
@@ -493,6 +493,41 @@ $(function () {
                     
 
                     
+                    
+
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<div class="music-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="aplayer" class="music"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script>
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'false' === 'true',
+        autoplay: 'true' === 'true',
+        theme: '#542674',
+        loop: 'all',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'false' === 'true',
+        listMaxHeight: '',
+        audio: JSON.parse('[{"name":"夜曲","artist":"周杰伦","url":"/medias/music/yequ.mp3","cover":"/medias/music/avatars/yequ.jpg"},{"name":"一路向北","artist":"周杰伦","url":"/medias/music/yiluxiangbei.mp3","cover":"/medias/music/avatars/yiluxiangbei.jpg"},{"name":"来自天堂的魔鬼","artist":"邓紫棋","url":"/medias/music/tiantangdemogui.mp3","cover":"/medias/music/avatars/tiantangdemogui.jpg"},{"name":"倒数","artist":"邓紫棋","url":"/medias/music/daoshu.mp3","cover":"/medias/music/avatars/daoshu.jpg"}]')
+    });
+});
+</script>
+                    
 
                     
 
@@ -516,24 +551,27 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/01/14/5w2h-godweiyang/" target="_blank">
+                    <a href="/2020/01/14/tianchituxian/" target="_blank">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="5W2H | 关于写博客的七点反思">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="天池图像识别">
                             
-                            <span class="card-title">5W2H | 关于写博客的七点反思</span>
+                            <span class="card-title">天池图像识别</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            
-关注公众号【算法码上来】，每日算法干货马上就来！
+                            代码使用
+data文件夹
+mchar文件夹  mchar文件夹用来存放数据集，数据集从天池官网进行下载。
+dataset.py  继承data.DataSet，构建适合SVHN数据集的类SVHMDataset。
 
 
-When？什么时候开始写的？第一次写博客是 2015 年了，在 CSDN 和博客园上面，当时写文章是为了记录 ACM 竞赛的题解，陆陆续续写了几十篇。但是最后还是没有坚持下去，主要还是
+mode文件夹
+basi
                             
                         </div>
                         <div class="publish-info">
@@ -578,7 +616,7 @@ When？什么时候开始写的？第一次写博客是 2015 年了，在 CSDN �
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">3.6k</span>
+            <span class="white-color">7.2k</span>
             
 
             <br>
@@ -601,31 +639,31 @@ When？什么时候开始写的？第一次写博客是 2015 年了，在 CSDN �
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/126289" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:godweiyang@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:1262896484@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="https://zhihu.com/people/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+    <a href="https://zhihu.com/people/啦啦啦啦啦啦" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
         <i class="fa fa-inverse">知</i>
     </a>
 
 
 
-    <a href="http://wpa.qq.com/msgrd?v=3&uin=792321264&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=162896484&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
 
 
-    <a href="https://weibo.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+    <a href="https://weibo.com/sa" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
         <i class="fa fa-weibo"></i>
     </a>
 
