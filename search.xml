@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>2022-10-21softmax回归</title>
+      <link href="/2023/03/01/2022-10-21-tu-xiang-fen-lei-shu-ju-ji/"/>
+      <url>/2023/03/01/2022-10-21-tu-xiang-fen-lei-shu-ju-ji/</url>
+      
+        <content type="html"><![CDATA[<h3 id="实现softmax的三个步骤："><a href="#实现softmax的三个步骤：" class="headerlink" title="实现softmax的三个步骤："></a>实现softmax的三个步骤：</h3><p>1.对每个项求幂（使用exp)<br>2.对每一行求和（小批量中每个样本是一行），得到每个样本的规范化常数<br>3.将每一行除以其规范化常数，确保结果的和为1</p><h3 id="torch-normal-的用法"><a href="#torch-normal-的用法" class="headerlink" title="torch.normal()的用法:"></a>torch.normal()的用法:</h3><pre><code class="javascript">torch.normal(means, std, out=None)</code></pre><p>返回一个张量，包含从给定参数means,std的离散正态分布中抽取随机数。 均值means是一个张量，包含每个输出元素相关的正态分布的均值。 std是一个张量，包含每个输出元素相关的正态分布的标准差。 均值和标准差的形状不须匹配，但每个张量的元素个数须相同。<br>参数:<br>means (Tensor) – 均值<br>std (Tensor) – 标准差<br>out (Tensor) – 可选的输出张量</p><h3 id="reshape函数参数-1-X-reshape-X-shape-0-1-T"><a href="#reshape函数参数-1-X-reshape-X-shape-0-1-T" class="headerlink" title="reshape函数参数-1(X.reshape(X.shape[0], -1).T):"></a>reshape函数参数-1(X.reshape(X.shape[0], -1).T):</h3><p> X.reshape(X.shape[0], -1).T可以将一个维度为(a,b,c,d)的矩阵转换为一个维度为(b∗c∗d, a)的矩阵。<br> 我们假设x的shape是(209, 64, 64, 3)的,然后我们说shape[0]就是第一个列的行数,也就是209<br> 通过reshape重新建立维度，第一个维度就是X.shape[0]，这就是正常的reshape操作；第二个维度是-1，我们知道X的shape属性是多少，是(209, 64, 64, 3)，但是想让X变成209行，列数不知道是多少，所以也就是209 * 64 * 64 * 3 / 209，也就是64 * 64 * 3<br>总结一下，参数-1就是不知道行数或者列数多少的情况下使用的参数，所以先确定除了参数-1之外的其他参数，然后通过(总参数的计算) / (确定除了参数-1之外的其他参数) = 该位置应该是多少的参数。 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> /小书匠/日记/2022-10 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2022-10-21线性回归</title>
+      <link href="/2023/03/01/2022-10-21-xian-xing-hui-gui/"/>
+      <url>/2023/03/01/2022-10-21-xian-xing-hui-gui/</url>
+      
+        <content type="html"><![CDATA[<h3 id="存储梯度："><a href="#存储梯度：" class="headerlink" title="存储梯度："></a>存储梯度：</h3><pre><code class="javascript">x.requires_grad(True) //等价于x=torch.arange(4.0,requires_grad=True)x.grad  // 默认值是None</code></pre><p>requires_grad是Pytorch中通用数据结构Tensor的一个属性，用于说明当前量是否需要在计算中保留对应的梯度信息</p><h3 id="获取数据集"><a href="#获取数据集" class="headerlink" title="获取数据集"></a>获取数据集</h3><pre><code class="javascript">true_w = torch.tensor([2, -3.4])true_b = torch.tensor(4.2)features, labels = d2l.synthetic_data(true_w, true_b, 1000)</code></pre><p>synthetic_data函数说明<br>这里也可以用d2l.synthetic_data？或者d2l.synthetic_data？？来查询函数相关信息<br>如果用两个问号，可以查看函数的具体实现代码</p><pre><code class="javascript">help(d2l.synthetic_data)</code></pre><h3 id="生成数据集"><a href="#生成数据集" class="headerlink" title="生成数据集"></a>生成数据集</h3><p>🎋第一步：导包 </p><pre><code class="javascript">import torchimport randomfrom d2l import torch as d2l</code></pre><p>若显示报错，没有d2l这个模块，在jupyter notebook中输入</p><pre><code class="javascript">!pip install -U d2l </code></pre><p>🎋第二步：构造函数</p><pre><code class="javascript">def synthetic_data(w,b,num_examples):    '''生成y = wx + b + 噪声。  '''    x = torch.normal(0,1,(num_examples,len(w)))    y = torch.matmul(x,w) + b    y += torch.normal(0,0.01,y.shape)    return x,y.reshape((-1,1))true_w = torch.tensor([2,-3.4])true_b = 4.2features,labels = synthetic_data(true_w,true_b,1000)print("features:",features[0],"\nlabels:",labels[0])</code></pre><p>1)此处b是个一维向量，当matmul的第一个参数是2维向量，第2个参数是一维向量时，返回的是矩阵和向量的乘积，结果是向量，因此，y需要reshape</p><p>2）reshape中-1表示自动计算，1表示固定，即列向量为1</p><p>3）创建一个形状为（3,4）的张量。 其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。</p><p>normal(0, 1, size=(3, 4))<br>🎋结果<br><img src="/./images/d13270b7a3034c0f90caf16bf7f8a9c5.png" alt="enter description here"><br>🎋第三步：画图看一下是不是线性相关</p><pre><code class="javascript">d2l.set_figsize()d2l.plt.scatter(features[:,-1].detach().numpy(),labels.detach().numpy(),1)</code></pre><p>1）detach()分离出数值，不再含有梯度</p><p>2）scatter()函数最后的一个1是绘制点直径的大小，如果改成50会看到一个个点非常粗</p><p>3）总的来说 生成第二个特征features[:, 1]和labels的散点图， 可以直观观察到两者之间的线性关系</p><h3 id="读取数据集"><a href="#读取数据集" class="headerlink" title="读取数据集"></a>读取数据集</h3><p>🎋第一步：定义函数<br> 训练模型时要对数据集进行遍历，每次抽取一小批量样本，并使用它们来更新我们的模型。 由于这个过程是训练机器学习算法的基础，所以有必要定义一个函数， 该函数能打乱数据集中的样本并以小批量方式获取数据。</p><p>在下面的代码中，我们定义一个data_iter函数， 该函数接收批量大小、特征矩阵和标签向量作为输入，生成大小为batch_size的小批量。 每个小批量包含一组特征和标签</p><pre><code class="javascript">def data_iter(batch_size,features,labels):    num_examples = len(features)    indices = list(range(num_examples))    random.shuffle(indices)    for i in range(0,num_examples,batch_size):        batch_indices = torch.tensor(        indices[i:min(i+batch_size,num_examples)])        yield features[batch_indices],labels[batch_indices]</code></pre><p>1)只是indices这个list被打乱了，features和labels都是顺序的，用循环才能随机地放进去</p><p>2)min的作用：不让访问越界    list超出会报错，out of index</p><p>3）通过 yield，创建生成器，我们不再需要编写读文件的迭代类，就可以轻松实现文件读取<br>🎋第二步：感受一下小批量运算<br>我们直观感受一下小批量运算：读取第一个小批量数据样本并打印。 每个批量的特征维度显示批量大小和输入特征数。 同样的，批量的标签形状与batch_size相等</p><pre><code class="javascript">batch_size = 10for X, y in data_iter(batch_size, features, labels):    print(X, '\n', y)    break</code></pre><p><img src="/./images/9a6669ea4439421ba4460a85f884113f.png" alt="enter description here"><br>🎄 初始化模型参数<br>通过从均值为0、标准差为0.01的正态分布中采样随机数来初始化权重， 并将偏置初始化为0</p><pre><code class="javascript">w = torch.normal(0, 0.01, size=(2,1), requires_grad=True)b = torch.zeros(1, requires_grad=True)</code></pre><p>1）计算梯度<br>作用在于更新参数</p><pre><code class="javascript">requires_grad=True</code></pre><p>2）b为偏置   偏置初始化为0</p><p>🎄 定义模型</p><pre><code class="javascript">def linreg(X, w, b):  #@save    """线性回归模型"""    return torch.matmul(X, w) + b</code></pre><p>1）torch.matmul(X, w)   矩阵乘以向量  等于 向量</p><p>2）b是标量</p><p>根据广播机制： 当我们用一个向量加一个标量时，标量会被加到向量的每个分量上</p><p>🎄定义损失函数 </p><pre><code class="javascript">def squared_loss(y_hat, y):  #@save    """均方损失"""    return (y_hat - y.reshape(y_hat.shape)) ** 2 / 2</code></pre><p>1）均方损失为：预测值y_hat 减去y真实值的平方除以2</p><p>2）而且需要将真实值y的形状转换为和预测值y_hat的形状相同</p><p>🎄定义优化算法<br>小批量随机梯度下降。</p><p>在每一步中，使用从数据集中随机抽取的一个小批量，然后根据参数计算损失的梯度。 接下来，朝着减少损失的方向更新我们的参数。</p><p>下面的函数实现小批量随机梯度下降更新。 该函数接受模型参数集合、学习速率和批量大小作为输入。</p><p>每 一步更新的大小由学习速率lr决定。 因为我们计算的损失是一个批量样本的总和，所以我们用批量大小（batch_size） 来规范化步长，这样步长大小就不会取决于我们对批量大小的选择。</p><pre><code class="javascript">def sgd(params, lr, batch_size):  #@save    """小批量随机梯度下降"""    with torch.no_grad():        for param in params:            param -= lr * param.grad / batch_size            param.grad.zero_()</code></pre><p>1）with torch.no_grad():</p><p>更新时不要计算梯度</p><p>2）param.grad.zero_()</p><p>pytorch会不断的累加变量的梯度，所以每更新一次参数，就要让其对应的梯度清零 </p><p>3）for param in params:</p><p>对每个参数进行计算（可能是w,可能是b）</p><p>4)不除以batch_size损失函数就是平方和误差<br>我们只要误差就行了</p><p>🎄训练<br>现在我们已经准备好了模型训练所有需要的要素，可以实现主要的训练过程部分了。</p><p>理解这段代码至关重要，因为从事深度学习后， 你会一遍又一遍地看到几乎相同的训练过程。</p><p>在每次迭代中，我们读取一小批量训练样本，并通过我们的模型来获得一组预测。 计算完损失后，我们开始反向传播，存储每个参数的梯度。</p><p>最后，我们调用优化算法sgd来更新模型参数。<br><img src="/./images/f10c2d0325d1499d8f8e23e043cc05d5.png" alt="enter description here"></p><p>在每个迭代周期（epoch）中，我们使用data_iter函数遍历整个数据集， 并将训练数据集中所有样本都使用一次（假设样本数能够被批量大小整除）。 这里的迭代周期个数num_epochs和学习率lr都是超参数，分别设为3和0.03。 设置超参数很棘手，需要通过反复试验进行调整。 </p><pre><code class="javascript">lr = 0.03num_epochs = 3net = linregloss = squared_loss for epoch in range(num_epochs):    for X,y in data_iter(batch_size,features,labels):        l = loss(net(X,w,b),y) #X和y的小批量损失        #因为L形状是（batch_size,1）而不是一个标量。L中的所有元素加到一起，        #并因此计算[w,b]梯度        l.sum().backward()        sgd([w,b],lr,batch_size) #使用参数的梯度更新参数    with torch.no_grad():        train_1 = loss(net(features,w,b),labels)        print(f'epoch {epoch+1},loss {float(train_1.mean())}:f')</code></pre><p>1）这里用net是指的线性模型，用net因为后面深度学习网络层数相关 </p><p>如果你没有linreg你会报错<br><img src="/./images/32b3fe6c80ad4f7fa422b7be729be801.png" alt="enter description here"><br>2）l.sum().backward()<br>求和目的：</p><p>之前自动求导那节讲到了向量求梯度比较麻烦 都通过sum()转化为标量再求梯度</p><p>求和之后后面会除batch_size，可以计算均值</p><p>求和本身让l以标量的形式表现出来。所有的梯度也叠加了嘛，所以sgd里面除了batch_size</p><p>它会返回每个epoch的损失 ，看到loss在减少<br><img src="/./images/b7d591ae4d2e44c8a8a5ac9c6bedfa2a.png" alt="enter description here"><br> 打印一下w 和 b 的误差</p><pre><code class="javascript">print(f'w的估计误差: {true_w - w.reshape(true_w.shape)}')print(f'b的估计误差: {true_b - b}')</code></pre><p><img src="/./images/f10bb3991ee14d39bf38f49267870bec.png" alt="enter description here"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> /小书匠/日记/2022-10 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>天池图像识别</title>
       <link href="/2020/01/14/tianchituxian/"/>
       <url>/2020/01/14/tianchituxian/</url>
@@ -21,6 +71,81 @@
         <tags>
             
             <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>django安装使用</title>
+      <link href="/2020/01/14/django-an-zhuang-shi-yong/"/>
+      <url>/2020/01/14/django-an-zhuang-shi-yong/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> django </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2022-10-17数据操作</title>
+      <link href="/2020/01/14/2022-10-17-shu-ju-cao-zuo/"/>
+      <url>/2020/01/14/2022-10-17-shu-ju-cao-zuo/</url>
+      
+        <content type="html"><![CDATA[<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>从MXNet导入ndarray模块</p><pre><code class="javascript">from mxnet import ndx = nd.arange(a)</code></pre><p>通过shape属性获取实例的形状</p><pre><code class="javascript">x.shape</code></pre><p>通过size获取实例中元素的总数</p><pre><code class="javascript">x.size</code></pre><p>使用reshape函数改变实例的形状</p><pre><code class="javascript">X = x.reshape((a,b))</code></pre><p>创建各元素为1的张量，为2的张量</p><pre><code class="javascript">nd.ones((a,b))nd.twos((a,b))</code></pre><p>指定实例中每个元素的值</p><pre><code class="javascript">Y = nd.array([a,b,c],[q,w,e],[t,y,u])</code></pre><h3 id="广播机制"><a href="#广播机制" class="headerlink" title="广播机制"></a>广播机制</h3><p>两个不同的实例按元素运算时，可能会触发广播机制：先复制元素使形状相同后在运算。</p><pre><code class="javascript">A = nd.arange(3).reshape((3, 1)) B = nd.arange(2).reshape((1, 2)) A, B Out[19]: ( [[0.] [1.] [2.]] &lt;NDArray 3x1 @cpu(0)&gt;, [[0. 1.]] &lt;NDArray 1x2 @cpu(0)&gt;)A+B[[0. 1.] [1. 2.] [2. 3.]] &lt;NDArray 3x2 @cpu(0)&gt;</code></pre><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>行索引截取：[a:b]<br>指定访问元素的位置，并重新赋值：X[a,b]=number</p><h3 id="运算的内存开销"><a href="#运算的内存开销" class="headerlink" title="运算的内存开销"></a>运算的内存开销</h3><p>id函数：</p><pre><code class="javascript">before = id(Y) Y=Y+X id(Y) == beforeFalse</code></pre><p>指定结果到特定内存：（开辟了临时内存存储计算结果）</p><pre><code class="javascript">Z = Y.zeros_like() before = id(Z)Z[:] = X + Yid(Z) == beforeTrue</code></pre><p>避免临时内存开销，使用out函数：</p><pre><code class="javascript">nd.elemwise_add(X, Y, out=Z) id(Z) == beforeTrue</code></pre><h3 id="NDArray和Numpy相互变换"><a href="#NDArray和Numpy相互变换" class="headerlink" title="NDArray和Numpy相互变换"></a>NDArray和Numpy相互变换</h3><p>将NumPy实例变换成NDArray实例</p><pre><code class="javascript">import numpy as np P = np.ones((2, 3)) D = nd.array(P) D[[1. 1. 1.] [1. 1. 1.]] &lt;NDArray 2x3 @cpu(0)&gt;</code></pre><p>将NDArray实例变换成NumPy实例</p><pre><code class="javascript">D.asnumpy()array([[1., 1., 1.], [1., 1., 1.]], dtype=float32)</code></pre><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>• NDArray是MXNet中存储和变换数据的主要工具。<br>• 可以轻松地对NDArray创建、运算、指定索引，并与NumPy之间相互变换。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2022-10-17自动求梯度</title>
+      <link href="/2020/01/14/2022-10-17-zi-dong-qiu-ti-du/"/>
+      <url>/2020/01/14/2022-10-17-zi-dong-qiu-ti-du/</url>
+      
+        <content type="html"><![CDATA[<p>导入模块：</p><pre><code class="javascript">from mxnet import autograd, nd</code></pre><p>先调用attach_grad函数来申请存储梯度所需要的内存</p><pre><code class="javascript">x.attach_grad()</code></pre><p>默认条件下MXNet不会记录用于求梯度 的计算。我们需要调用record函数来要求MXNet记录与求梯度有关的计算。</p><pre><code class="javascript">with autograd.record():         y = 2 * nd.dot(x.T, x)</code></pre><p>通过调用backward函数自动求梯度</p><pre><code class="javascript">y.backward()</code></pre><p>例子：<br>函数 y = 2x⊤x 关于x 的梯度应为4x。现在我们来验证一下求出来的梯度是正确的</p><pre><code class="javascript">x = nd.arange(4).reshape((4, 1))x.attach_grad()with autograd.record():    y = 2 * nd.dot(x.T, x)y.backward()assert (x.grad - 4 * x).norm().asscalar() == 0 print(x.grad)[[ 0.][ 4.][ 8.][12.]] &lt;NDArray 4x1 @cpu(0)&gt;</code></pre><h3 id="训练模式和预测模式"><a href="#训练模式和预测模式" class="headerlink" title="训练模式和预测模式"></a>训练模式和预测模式</h3><p>在调用record函数后，MXNet会记录并计算梯度。此外，默认情况下autograd还会将运行模式从预测模式转为训练模式。这可以通过调用is_training函数来查看。</p><pre><code class="javascript">print(autograd.is_training())with autograd.record():    print(autograd.is_training())        False    True</code></pre><h3 id="python控制流求梯度"><a href="#python控制流求梯度" class="headerlink" title="python控制流求梯度"></a>python控制流求梯度</h3><p>使用MXNet的一个便利之处是，即使函数的计算图包含了Python的控制流(如条件和循环控制)，我们也有可能对变量求梯度。<br>考虑下⾯程序，其中包含Python的条件和循环控制。需要强调的是，这⾥循环（while循环）迭代的次数和条件判断（if语句）的执⾏都取决于输⼊a的值。</p><pre><code class="javascript">def f(a):    b = a * 2    while b.norm().asscalar() &lt; 1000:        b = b * 2    if b.sum().asscalar() &gt; 0:        c = b    else:        c = 100 * b    return ca = nd.random.normal(shape=1)a.attach_grad()with autograd.record():    c = f(a)c.backward()print(a.grad)print(c/a)</code></pre><p><img src="/./images/v2-027f25a1ae5d34300a7536897802827c_720w.jpg" alt="enter description here"></p><p>分析一下，上面定义的f函数。事实上，给定任意输入a，其输出必然是f(a) = x*a的形式，其中标量系数x的值取决于输入a。由于c = f(a)有关a的梯度为x，且值为c/a，我们可以像下面这样验证本例中控制流求梯度的结果的正确性。</p><pre><code class="javascript">a.grad == c / a[1.] &lt;NDArray 1 @cpu(0)&gt;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
